@@ -22,12 +22,6 @@ class ExampleTest(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def t(self):
-        print 'hola'
-        txt = self.driver
-        print type(txt), txt
-        return txt != u''
-
     def test(self):
         self.driver.get("https://cars.mail.ru/")
         main_page = MainPage(self.driver)
