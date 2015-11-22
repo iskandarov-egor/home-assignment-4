@@ -32,9 +32,7 @@ class LoginLogoutTest(unittest.TestCase):
         main_page.username_field.set_value("testcarspetr")
         main_page.password_field.set_value("seleniumcars")
         main_page.submit_login_form()
-        WebDriverWait(self.driver, 30, 0.1).until(
-            lambda d: main_page.email_field.get_value()
-        )
+
         self.assertEqual(main_page.email_field.get_value(), "testcarspetr@mail.ru")
 
         main_page.logout_button.click()
