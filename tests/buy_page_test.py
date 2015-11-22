@@ -2,13 +2,13 @@
 
 import unittest
 import os
-from page import *
+from buy_page import *
 from selenium.webdriver import DesiredCapabilities, Remote
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
 
 
-class LoginLogoutTest(unittest.TestCase):
+class BuyPageTest(unittest.TestCase):
     # PASSWORD = os.environ['TTHA2PASSWORD']
 
     def setUp(self):
@@ -21,20 +21,11 @@ class LoginLogoutTest(unittest.TestCase):
         # )
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(10)
-        self.driver.get("https://cars.mail.ru/")
-
+        self.driver.get("https://cars.mail.ru/sale/msk/all/")
 
     def tearDown(self):
         self.driver.quit()
 
-    def testLoginLogout(self):
-        main_page = MainPage(self.driver)
-        main_page.login_button.click()
-        main_page.username_field.set_value("testcarspetr")
-        main_page.password_field.set_value("seleniumcars")
-        main_page.submit_login_form()
-
-        self.assertEqual(main_page.email_field.get_value(), "testcarspetr@mail.ru")
-
-        main_page.logout_button.click()
-        self.assertEqual(main_page.email_field.get_value(), '')
+    def testTest(self):
+        page = BuyPage(self.driver)
+        print page.offer_cards[1].title.get_value()

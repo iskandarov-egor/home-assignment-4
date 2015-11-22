@@ -2,12 +2,22 @@
 
 import sys
 import unittest
+from tests.buy_page_test import BuyPageTest
 from tests.example_test import LoginLogoutTest
 
 
 if __name__ == '__main__':
-    suite = unittest.TestSuite((
-        unittest.makeSuite(LoginLogoutTest),
-    ))
-    result = unittest.TextTestRunner().run(suite)
+    test_classes_to_run = [LoginLogoutTest, BuyPageTest]
+
+    loader = unittest.TestLoader()
+
+    suites_list = []
+    for test_class in test_classes_to_run:
+        suite = loader.loadTestsFromTestCase(test_class)
+        suites_list.append(suite)
+
+    big_suite = unittest.TestSuite(suites_list)
+
+    runner = unittest.TextTestRunner()
+    result = runner.run(big_suite)
     sys.exit(not result.wasSuccessful())

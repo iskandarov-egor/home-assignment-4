@@ -17,6 +17,6 @@ class MainPage(BasePage):
         self.logout_button = ClickableElement(MainPageLocators.LOGOUT_BUTTON, self)
 
     def submit_login_form(self):
-        self.driver.find_element(*MainPageLocators.USERNAME_FIELD).submit()
+        MainPageLocators.USERNAME_FIELD.locate(self.driver).submit()
 
 

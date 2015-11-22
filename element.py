@@ -10,7 +10,7 @@ class BaseElement(object):
         return self._get_element().text
 
     def _get_element(self):
-        return self.driver.find_element(*self.locator)
+        return self.locator.locate(self.driver)
 
 
 class InputElement(BaseElement):
