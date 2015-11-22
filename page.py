@@ -8,13 +8,15 @@ class BasePage(object):
 
 
 class MainPage(BasePage):
-    username_field = BaseInputElement(MainPageLocators.USERNAME_FIELD)
-    password_field = BaseInputElement(MainPageLocators.PASSWORD_FIELD)
-    login_button = BaseClickableElement(MainPageLocators.LOGIN_BUTTON)
-
     def __init__(self, driver):
         super(MainPage, self).__init__(driver)
+        self.username_field = InputElement(MainPageLocators.USERNAME_FIELD, self)
+        self.password_field = InputElement(MainPageLocators.PASSWORD_FIELD, self)
+        self.login_button = ClickableElement(MainPageLocators.LOGIN_BUTTON, self)
+        self.email_field = ClickableElement(MainPageLocators.USER_EMAIL_HREF, self)
+        self.logout_button = ClickableElement(MainPageLocators.LOGOUT_BUTTON, self)
 
     def submit_login_form(self):
         self.driver.find_element(*MainPageLocators.USERNAME_FIELD).submit()
+
 
