@@ -7,10 +7,11 @@ class BaseElement(object):
         self.driver = page.driver
 
     def get_value(self):
-        return self._get_element().text
+        return self._get_element().get_attribute('innerHTML')
 
     def _get_element(self):
-        return self.locator.locate(self.driver)
+        return WebDriverWait(self.driver, 5).until(lambda d: self.locator.locate(d))
+
 
 
 class InputElement(BaseElement):

@@ -7,7 +7,7 @@ from tests.example_test import LoginLogoutTest
 
 
 if __name__ == '__main__':
-    test_classes_to_run = [LoginLogoutTest, BuyPageTest]
+    test_classes_to_run = [BuyPageTest]
 
     loader = unittest.TestLoader()
 

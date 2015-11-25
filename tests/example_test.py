@@ -20,7 +20,6 @@ class LoginLogoutTest(unittest.TestCase):
         #     desired_capabilities=getattr(DesiredCapabilities, browser).copy()
         # )
         self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(10)
         self.driver.get("https://cars.mail.ru/")
 
 
